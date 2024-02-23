@@ -1,0 +1,122 @@
+package project;
+import java.util.*;
+
+ class bankDetials{
+	int phno;
+	String name;
+	int accnum;
+	public bankDetials(int phno, String name, int accnum) {
+		super();
+		this.phno = phno;
+		this.name = name;
+		this.accnum = accnum;
+	}
+	public int getPhno() {
+		return phno;
+	}
+	public void setPhno(int phno) {
+		this.phno = phno;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getAccnum() {
+		return accnum;
+	}
+	public void setAccnum(int accnum) {
+		this.accnum = accnum;
+	}
+	
+	
+ }
+public class ATM_2 {
+	static Scanner sc1=new Scanner(System.in);
+	static int balance=1000,withdraw,deposite;
+
+public static void main(String[] args) {
+	bankDetials b1=new bankDetials(1234567,"keerthu",987654321);
+	System.out.println("****WELCOME OUR ATM****");
+	int pin=1606;
+	System.out.println("enter your pin");
+	pin=sc1.nextInt();
+	if(pin==1606) {
+		System.out.println("1.Check balance");
+		System.out.println("2.withdraw ");
+		System.out.println("3.deposite");
+		System.out.println("4.bankdetials");
+		System.out.println("5.change pin");
+		System.out.println("6.enter your new pin");
+        System.out.println("7.exit");
+	}
+	else {
+		System.out.println("incorrect pin");
+	}
+	
+	while(true) {
+		int choice=sc1.nextInt();
+		switch(choice) {
+		case 1:System.out.println("your balance is"+balance);
+		break;
+		
+		case 2: System.out.println("enter the withdraw amount");
+		withdraw=sc1.nextInt();
+		if(balance>=withdraw) {
+			balance=balance-withdraw;
+			System.out.println("balance:"+balance);
+			
+		}
+		else {
+			System.out.println("insufficient balance");
+		}
+		break;
+		
+		case 3:System.out.println("enter your deposit money:");
+		deposite=sc1.nextInt();
+		balance=balance+deposite;
+		System.out.println("your balance is:"+balance);
+		System.out.println("you money is scussessfully deposited");
+		break;
+		
+		case 4:
+			System.out.println("Account holder name"+b1.getName());
+			System.out.println("Account number:"+b1.getAccnum());
+			System.out.println("Phone number:"+b1.getPhno());
+			System.out.println("your balance is:"+balance);
+		break;
+		case 5:System.out.println("change pin");
+		int currentPin=1606;
+		System.out.println("enter the current pin:");
+		currentPin=sc1.nextInt();
+		if( currentPin==1606) {
+			System.out.print("Enter your new PIN: ");
+		int	newPin=sc1.nextInt();
+		currentPin = newPin;
+	 System.out.println("PIN has been successfully changed!");
+		
+	 System.out.println("enter your new pin");
+	 	newPin=sc1.nextInt();
+	 	
+	 	System.out.println("1.Check balance");
+		System.out.println("2.withdraw ");
+		System.out.println("3.deposite");
+		System.out.println("4.bankdetials");
+		System.out.println("5.change pin");
+		System.out.println("6.enter your new pin");
+        System.out.println("7.exit");
+		
+		}
+		else {
+			System.out.println("enter your changed pin");
+		}
+		
+        break;
+		case 6:System.out.println("****Thankyou for useing our ATM*****");
+		System.exit(0);
+		
+		}
+}
+}
+}
